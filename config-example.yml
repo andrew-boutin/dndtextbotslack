@@ -1,0 +1,10 @@
+slack:
+  bot-name:
+  api-token:
+
+api:
+  url: 
+  client:
+    id:
+    secret:
+
