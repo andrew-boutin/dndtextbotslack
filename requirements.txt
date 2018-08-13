@@ -1,2 +1,4 @@
 simple_slack_bot==v1.1.0
 pyyaml==3.13
+redis==4.0.11
+requests

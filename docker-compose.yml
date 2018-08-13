@@ -1,19 +1,22 @@
 version: '3'
 services:
-  db:
-    image: postgres
-    environment:
-      POSTGRES_DB: dndtext
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+  redis:
+    image: "redis:alpine"
     ports:
-      - 5432:5432
+      - 6379:6379
   bot:
     build: .
     volumes:
       - .:/bot
-    command: ["./wait-for-it.sh", "db:5432", "--", "python", "main.py"]
+    command: ["./wait-for-it.sh", "redis:6379", "--", "python", "main.py"]
     ports:
-      - "8080:8080"
+      - "8082:8082"
     depends_on:
-      - db
+      - redis
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    environment:
+    - REDIS_HOSTS=local:redis:6379
+    ports:
+    - 8081:8081

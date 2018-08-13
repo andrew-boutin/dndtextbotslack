@@ -8,4 +8,4 @@ WORKDIR /bot
 
 RUN pip install -r requirements.txt
 	
-EXPOSE 8080
+EXPOSE 8082
