@@ -30,7 +30,17 @@ Docker-compose defines Docker containers to spin up.
 
 One Docker container runs the Python code that makes up the Slack bot. Container based on [`Dockerfile`](Dockerfile) and Python dependencies defined in [`requirements.txt`](requirements.txt).
 
-Another container in the network is a Postgresql database that the bot utilizes.
+Another container in the network is a Redis store that the bot utilizes.
+
+## Changing python dependencies
+
+If you need to update existing or add new Python dependencies then modify the [`requirements.txt`](requirements.txt) file.
+
+Then you can run a make cmd to get the container rebuilt since the normal cmds will used the cached version:
+
+    make newreqs
+
+Now you can run the other cmds like normal.
 
 ## View redis store
 

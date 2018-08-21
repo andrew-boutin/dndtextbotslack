@@ -6,16 +6,19 @@ This is a Slack bot that interfaces with the [DnD Text API](https://github.com/a
 
     @dndtextbot add 1
 
-@mention the bot in Slack with the `remove` command and your DnD text character ID to stop the bot from sending your messages to the API.
+@mention the bot in Slack with the `remove` command to stop the bot from sending your messages to the API.
 
-    @dndtextbot remove 1
+    @dndtextbot remove
 
-See [development](DEVELOPMENT.md) for how to get started if you want to run and/or work on this.
+See [development](docs/DEVELOPMENT.md) for how to get started if you want to run and/or work on this.
 
 TODO:
 
-- pin requests
+- Pin redis:alpine version
 - Get api auth working
 - Redis creds
 - Keep ID/name mappings in Redis to cache lookups
 - Periodically ping Slack and API for connectivity if no traffic for a while
+- Eventually switch Python container to alpine
+
+# websocket-client==0.48.0

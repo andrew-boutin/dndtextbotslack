@@ -15,10 +15,10 @@ class DNDTextAPIClient:
         try:
             r = requests.get(url)
             if r.status_code != 200:
-                self.logger.warn("Received unexpected status code `{r.status_code}` from api.")
+                self.logger.warning("Received unexpected status code `{r.status_code}` from api.")
             return r.status_code == 200
         except requests.exceptions.ConnectionError:
-            self.logger.warn("Failed to ping API.")
+            self.logger.warning("Failed to ping API.")
             return False
 
     def check_auth(self):
